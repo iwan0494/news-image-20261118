@@ -1,0 +1,5 @@
+Done. Both repos updated, verified, committed, pushed, and result files written.
+
+- 20261118: commit 6613a5a pushed; main.py respects MAKEFUN_OUTPUT_DIR (fallback /output); two env-free runs byte-identical (sha256 7c6ee9b4...), 1024x1024, 107940 bytes; env-dir run landed in temp dir.
+- 20261119: commit 6e3200e pushed; same verification (sha256 4ff15f79..., 1024x1024, 106187 bytes).
+HERMES_NEWS_FIX_JEROUTER_AUTO_EXIT:0

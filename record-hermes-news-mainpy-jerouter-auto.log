@@ -1,0 +1,8 @@
+Both repos done.
+
+- `news-image-20261118`: main.py added; verified two runs byte-identical (sha256 `7c6ee9b4…78c996`), 107,940 bytes, 1024x1024 PNG; pushed commit `522fbca`.
+- `news-image-20261119`: main.py added; verified two runs byte-identical (sha256 `4ff15f79…0a332f`), 106,187 bytes, 1024x1024 PNG; pushed commit `5541b56`.
+- Both clones from GitHub confirmed main.py matches and runs deterministically.
+- Reports written at `/home/hatch/workspace/makefun/news-image-20261118/NEWS_MAINPY_2026-11-19.md` and `/home/hatch/workspace/makefun/news-image-20261119/NEWS_MAINPY_2026-11-19.md`.
+- Poster PNGs, render_poster.py, README, LICENSE untouched.
+HERMES_NEWS_MAINPY_JEROUTER_AUTO_EXIT:0

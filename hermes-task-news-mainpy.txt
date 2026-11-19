@@ -1,0 +1,27 @@
+You are the news-image main.py session for make.fun bounties news-image-20261118 and news-image-20261119 (two separate competitions, one session builds the entry program for both).
+
+CONTEXT (read before writing anything):
+- Both repos already exist and are pushed to GitHub (owner iwan0494):
+  - /home/hatch/workspace/makefun/news-image-20261118/ -> https://github.com/iwan0494/news-image-20261118 (poster: poster-20261118.png, 1024x1024, ~105 KiB)
+  - /home/hatch/workspace/makefun/news-image-20261119/ -> https://github.com/iwan0494/news-image-20261119 (poster: poster-20261119.png, 1024x1024, ~104 KiB)
+- Each repo has README.md + LICENSE (MIT) + the poster PNG + render_poster.py. The poster images are FINAL and VERIFIED (clean, readable, no overlap). DO NOT modify the poster PNGs or render_poster.py.
+- Bounty rule: the entry program is main.py (Python 3.13) in the repo root; it must write ONE image to /output/entry.png. The simplest valid program copies an image the repository holds. Requirements: image whole PNG or JPEG, at most 1 MiB and 1024x1024 px; NO network at runtime; the program runs twice and BOTH runs must write the same bytes (deterministic).
+
+YOUR JOB:
+For EACH repo (do 20261118 first, then 20261119):
+1. Write main.py in the repo root. Python 3.13, STANDARD LIBRARY ONLY (no PIL, no third-party imports). It must:
+   - Locate the poster PNG next to main.py (poster-20261118.png / poster-20261119.png).
+   - Create /output if it does not exist.
+   - Copy the poster to /output/entry.png (binary copy, e.g. shutil.copyfile).
+   - Print a short confirmation to stdout (e.g. the output path and byte size).
+   - Use NO network, NO randomness, NO timestamps. Deterministic by construction.
+2. Verify it: run `python3 main.py` TWICE in each repo, capturing the output to two files, and confirm the two output files are BYTE-IDENTICAL (sha256sum equal) and that the output is 1024x1024 and under 1 MiB. Do this verification yourself before you stop.
+3. Commit + push main.py to the repo (git identity already set in each repo: user.name iwan0494, user.email iwan0494@users.noreply.github.com; branch main; remote origin set). Commit message: "news-image-<date>: add main.py (copies poster to /output/entry.png)".
+4. Write a short report to /home/hatch/workspace/makefun/news-image-20261118/NEWS_MAINPY_2026-11-19.md AND /home/hatch/workspace/makefun/news-image-20261119/NEWS_MAINPY_2026-11-19.md (one per repo, or a single report covering both — your choice, but put a copy in each repo dir): the main.py contents, the two sha256s (must be equal), the output size/dimensions, and the pushed commit hash. Then stop.
+
+HARD RULES:
+- Do NOT touch the poster PNGs, render_poster.py, README.md, or LICENSE. Only add main.py (+ the report).
+- Do NOT touch the tiny-chess directory (/home/hatch/workspace/makefun/tiny-chess/) or any other repo.
+- Do NOT use the network in main.py. Do NOT add dependencies.
+- NEVER end a turn with a text-only message — keep working inside tool calls until both main.py files are written, verified byte-identical across two runs, committed, and pushed, and the report(s) are written.
+- Do NOT paste base64 or images.

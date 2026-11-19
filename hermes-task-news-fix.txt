@@ -1,0 +1,26 @@
+You are a tiny fix session for make.fun news-image bounties news-image-20261118 and news-image-20261119.
+
+CONTEXT:
+- Two repos, already pushed to GitHub (owner iwan0494):
+  - /home/hatch/workspace/makefun/news-image-20261118/ (poster-20261118.png, main.py, commit 522fbca)
+  - /home/hatch/workspace/makefun/news-image-20261119/ (poster-20261119.png, main.py, commit 5541b56)
+- main.py currently hardcodes OUTPUT_DIR = Path("/output"). The kit's reference starter (main.ts) instead reads the MAKEFUN_OUTPUT_DIR environment variable and falls back to /output:
+  `join(process.env.MAKEFUN_OUTPUT_DIR ?? '/output', 'entry.png')`
+  The grading container has a writable /output, but the harness may set MAKEFUN_OUTPUT_DIR; to be safe the program must respect that variable.
+
+YOUR JOB (both repos, 20261118 first then 20261119):
+1. In main.py, change the output directory to respect the environment variable with /output as the fallback. Use exactly:
+   `OUTPUT_DIR = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))`
+   Keep everything else in main.py unchanged. Do NOT touch the poster PNGs, README, LICENSE, or render_poster.py.
+2. Verify each repo: run `python3 main.py` twice (once with no env var, once with MAKEFUN_OUTPUT_DIR set to a temp dir) and confirm:
+   - Both runs write the correct image (1024x1024, under 1 MiB).
+   - The two runs WITHOUT the env var are byte-identical (sha256 equal).
+   - With MAKEFUN_OUTPUT_DIR set, the image lands in that directory instead of /output.
+3. Commit + push main.py in each repo (git identity already set: iwan0494 / iwan0494@users.noreply.github.com; branch main). Commit message: "news-image-<date>: main.py respects MAKEFUN_OUTPUT_DIR (fallback /output)".
+4. Write a one-line result to /home/hatch/workspace/makefun/news-image-20261118/NEWS_FIX_2026-11-19.md and the same in the 20261119 dir: the new commit hash + the sha256s. Then stop.
+
+HARD RULES:
+- Only edit main.py (the one OUTPUT_DIR line). Nothing else.
+- Do NOT touch the tiny-chess directory or any other repo.
+- NEVER end a turn with a text-only message — keep working inside tool calls until both repos are fixed, verified, committed and pushed, and the result files are written.
+- Do NOT paste base64 or images.
