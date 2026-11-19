@@ -16,14 +16,15 @@ PAPER = (255, 255, 255)   # pure white, not warm cream
 INK = (14, 27, 44)        # deep ink navy, not near-black grey
 RED = (217, 43, 43)       # single signal-red accent, used sparingly
 SLATE = (90, 100, 112)    # muted slate for summaries
-FAINT = (226, 230, 235)   # faint vertical divider
 
 SERIF_B = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
 SANS_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 SANS = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
+
 def F(path, size):
     return ImageFont.truetype(path, size)
+
 
 def wrap(draw, text, font, max_w):
     words = text.split()
@@ -39,6 +40,7 @@ def wrap(draw, text, font, max_w):
     if cur:
         lines.append(cur)
     return lines
+
 
 def draw_poster(date_label, lead, stories, outfile):
     img = Image.new("RGB", (W, H), PAPER)
@@ -106,6 +108,7 @@ def draw_poster(date_label, lead, stories, outfile):
 
     img.save(outfile, "PNG", optimize=True)
     print(f"wrote {outfile} ({img.size[0]}x{img.size[1]})")
+
 
 POSTERS = {
     "20261118": {
